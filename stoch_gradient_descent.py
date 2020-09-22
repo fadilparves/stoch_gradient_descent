@@ -15,4 +15,26 @@ class StochasticGradientDescent:
         self.lmbda = lmbda
         self.learning_rate = learning_rate
 
-    
+    def fit(self, X_train, X_val):
+        m, n  = X_train.shape
+
+        self.P = 3 * np.random.rand(self.n_latent_features, m)
+        self.Q = 3 * np.random.rand(self.n_latent_features. n)
+
+        self.train_error = []
+        self.val_error = []
+
+        users, items = X_train.nonzero()
+
+        for epoch in range(self.n_epochs):
+            for u, i in zip(users, items):
+                error = X_train[u, i] - self.predictions(self.P[:,u], self.Q[:,i])
+                self.P[:,u] += self.learning_rate * (error * self.Q[:, i] - self.lmbda * self.P[:, u])
+                self.Q[:,i] += self.learning_rate * (error * self.P[:, u] - self.lmbda * self.Q[:, i])
+
+            train_rmse = rmse(self.predictions(self.P, self.Q), X_train)
+            val_rmse = rmse(self.predictions(self.P, self.Q), X_val)
+            self.train_error.append(train_rmse)
+            self.val_error.append(val_rmse)
+        
+        return self
