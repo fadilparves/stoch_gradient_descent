@@ -15,6 +15,9 @@ class StochasticGradientDescent:
         self.lmbda = lmbda
         self.learning_rate = learning_rate
 
+    def predictions(self, P, Q):
+        return np.dot(P.T, Q)
+
     def fit(self, X_train, X_val):
         m, n  = X_train.shape
 
