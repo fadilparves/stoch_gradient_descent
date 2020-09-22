@@ -41,3 +41,8 @@ class StochasticGradientDescent:
             self.val_error.append(val_rmse)
         
         return self
+
+    def predict(self, X_train, user_index):
+        y_hat = self.predictions(self.P, self.Q)
+        pred_index = np.where(X_train[user_index, :] == 0)[0]
+        return y_hat[user_index, pred_index].flatten()
