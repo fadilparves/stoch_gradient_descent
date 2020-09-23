@@ -19,7 +19,7 @@ class StochasticGradientDescent:
         return np.dot(P.T, Q)
 
     def fit(self, X_train, X_val):
-        m, n  = X_train.shape
+        m, n = X_train.shape
 
         self.P = 3 * np.random.rand(self.n_latent_features, m)
         self.Q = 3 * np.random.rand(self.n_latent_features, n)
