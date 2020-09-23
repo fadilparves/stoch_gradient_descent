@@ -22,7 +22,7 @@ class StochasticGradientDescent:
         m, n  = X_train.shape
 
         self.P = 3 * np.random.rand(self.n_latent_features, m)
-        self.Q = 3 * np.random.rand(self.n_latent_features. n)
+        self.Q = 3 * np.random.rand(self.n_latent_features, n)
 
         self.train_error = []
         self.val_error = []
