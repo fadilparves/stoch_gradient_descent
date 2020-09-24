@@ -29,7 +29,7 @@ elements on the diagonal of S are known as singular values.
 ### Recommender Engine
 View the [Jupyter Notebook](https://github.com/fadilparves/stoch_gradient_descent/blob/master/Artist_Recommender.ipynb) with descriptions and results
 
-SGD from stracth [here](https://github.com/fadilparves/stoch_gradient_descent/blob/master/stoch_gradient_descent.py)
+SGD from scratch [here](https://github.com/fadilparves/stoch_gradient_descent/blob/master/stoch_gradient_descent.py)
 
 ### How to run
 1. Make sure you have all the libs installed (pandas, numpy, scikit-learn, seaborn, matplotlib)
